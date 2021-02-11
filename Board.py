@@ -1,16 +1,17 @@
+from Player import Player
+
+
 class Board:
 
     def __init__(self):
         self.empty = " "
-        self.player1 = "X"
-        self.player2 = "O"
-        self.board = self.create_board()
+        self.board = self.__create_board()
 
-    def create_board(self):
+    def __create_board(self):
         lst = [[], [], []]
         for row in range(3):
             for col in range(3):
-                lst.board[row][col].append(self.empty)
+                self.board[row][col].append(self.empty)
         return lst
 
     def next_player(self):
@@ -30,3 +31,12 @@ class Board:
     def check_win(self):
         return
 
+    def finished_game(self):
+        for row in self.board:
+            for col in row:
+                if col == self.empty:
+                    return False
+        return True
+
+    def __str__(self):
+        return
